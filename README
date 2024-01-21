@@ -1,0 +1,12 @@
+Raylib 5.0 bindings for the V programming language
+
+
+Note: This library is work in progress and not yet ready for use.
+
+
+## Changes from original Raylib C-API
+
+- `string` instead of `char *` for all string parameters
+- `void TraceLog(int logLevel, const char *text, ...)` -> `fn trace_log(log_level: int, text: string)`
+  - Use string interpolation instead of `printf`-style formatting
+
