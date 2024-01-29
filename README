@@ -9,11 +9,12 @@ Note: This library is work in progress and not yet ready for use.
 - `string` instead of `char *` for all string parameters
 - `void TraceLog(int logLevel, const char *text, ...)` -> `fn trace_log(log_level: int, text: string)`
   - Use string interpolation instead of `printf`-style formatting
-- Some functions are removed; Use V's standard library instead
+- Some features are removed; Use V's standard library instead
   - File-related functions
   - Compression/Encoding functions
 
 ## TODO
 
-- Memory safety for Image
+- Memory safety for Image, string, etc.
+- Add more implementations
 
