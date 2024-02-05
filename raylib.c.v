@@ -2424,11 +2424,36 @@ pub fn gen_image_text(width int, height int, text string) Image {
 
 fn C.ImageCopy(image Image) Image
 
+@[inline]
+pub fn image_copy(image Image) Image {
+	return C.ImageCopy(image)
+}
+
+@[inline]
+pub fn (i Image) copy() Image {
+	return C.ImageCopy(image)
+}
+
 fn C.ImageFromImage(image Image, rec Rectangle) Image
 
-fn C.ImageText(text &i8, fontsize int, color Color) Image
+@[inline]
+pub fn image_from_image(image Image, rec Rectangle) Image {
+	return C.ImageFromImage(image, rec)
+}
 
-fn C.ImageTextEx(font Font, text &i8, fontsize f32, spacing f32, tint Color) Image
+fn C.ImageText(text &u8, fontsize int, color Color) Image
+
+@[inline]
+pub fn image_text(text string, fontsize int, color Color) Image {
+	return C.ImageText(text.str, fontsize, color)
+}
+
+fn C.ImageTextEx(font Font, text &u8, fontsize f32, spacing f32, tint Color) Image
+
+@[inline]
+pub fn image_text_ex(font Font, text string, fontsize f32, spacing f32, tint Color) Image {
+	return C.ImageTextEx(font, text.str, fontsize, spacing, tint)
+}
 
 fn C.ImageFormat(image &Image, newformat int)
 
